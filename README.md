@@ -1,2 +1,2 @@
-# nvim_lua_config
+# nvim-lua-config
 Configuration of Nvim using Lua 
