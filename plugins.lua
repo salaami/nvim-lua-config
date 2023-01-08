@@ -23,22 +23,29 @@ return require('packer').startup({
         -- Theme, Icons, Statusbar, Bufferbar --
         ----------------------------------------
 
-        use({
-            'kyazdani42/nvim-web-devicons',
-            config = function()
-                require('nvim-web-devicons').setup()
-            end,
-        })
+	    use('nvim-lualine/lualine.nvim')	
 
-	use {
-	    'nvim-lualine/lualine.nvim',
- 	    requires = { 'kyazdani42/nvim-web-devicons', opt = true }
-	}	
-        -----------------------------------
+	    ----------------
+        -- Navigation --
+        ----------------
+        use {
+          'nvim-tree/nvim-tree.lua',
+          'nvim-tree/nvim-web-devicons',
+        }
+
+	    -----------------------------------
         -- Treesitter: Better Highlights --
         -----------------------------------
 
-        --------------------------
+        use('nvim-treesitter/nvim-treesitter')
+	
+        -----------
+	    -- Color --
+	    -----------
+	
+    	use('ellisonleao/gruvbox.nvim')
+
+	    --------------------------
         -- Editor UI Niceties --
         --------------------------
 
@@ -57,6 +64,10 @@ return require('packer').startup({
         ---------------------------------
         -- Navigation and Fuzzy Search --
         ---------------------------------
+        use {
+            'nvim-telescope/telescope.nvim', tag = '0.1.0',
+            requires = { {'nvim-lua/plenary.nvim'} }
+        }
 
         use({
             'karb94/neoscroll.nvim',
@@ -85,10 +96,6 @@ return require('packer').startup({
             'wellle/targets.vim',
             event = 'BufRead',
         })
-
-        --------------
-        -- Terminal --
-        --------------
 
         -----------------------------------
         -- LSP, Completions and Snippets --
