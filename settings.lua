@@ -4,6 +4,8 @@ local o = vim.o
 o.termguicolors = true
 -- o.background = 'dark'
 
+-- Hide Mode due to lualine
+o.showmode = false 
 
 -- Decrease update time
 o.timeoutlen = 500
